@@ -4,7 +4,7 @@ app_service_host_port: 8000
 app_service_name: digital-sky-app
 app_image_name: digital-sky-app-prod
 app_artifact_version: 1.0
-re_captcha_site_key: "6Leo7GgUAAAAAFmi46YsVSW-CFbl7jMRflsOk-zY"
+re_captcha_site_key: "6LdKiWgUAAAAAGxALniEO7b9FfmLBKi6O4bPrZLj"
 api_host: 172.17.0.1
 api_port: 9000
 self_cert_domain: 192.168.33.10
