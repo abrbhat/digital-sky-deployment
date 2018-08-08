@@ -1,0 +1,7 @@
+---
+services_root_directory: /home/core/ds
+certs_root_directory: /home/core/certs
+archive_docker_image: false
+
+
+

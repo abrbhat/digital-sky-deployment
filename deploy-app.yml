@@ -1,0 +1,11 @@
+---
+
+# Deploy API service
+- name: Deploy server
+  hosts: digital_sky_app_hosts
+  user: "core"
+  gather_facts: True
+  tasks:
+    - include_role:
+        name: deploy-container
+

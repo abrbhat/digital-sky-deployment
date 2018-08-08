@@ -1,0 +1,26 @@
+---
+
+service_container_port: 9443
+service_host_port: 9090
+service_name: digital-sky-api
+image_name: digital-sky-api
+artifact_version: 1.0.0
+
+reset_password_path: "https://digitalsky-uat.centralindia.cloudapp.azure.com:8080/resetPassword"
+account_verification_path: "https://digitalsky-uat.centralindia.cloudapp.azure.com:8080/verifyAccount"
+
+jwt_keystore_path: file:/certs/ds-jwt-keystore.p12
+#jwt_keystore_password: in vault
+jwt_keystore_type: PKCS12
+jwt_key_alias: ds-jwt
+#jwt_key_password: in vault
+
+db_host: 172.17.0.1
+mongo_db_host: 172.17.0.1
+
+fie_storage_location: /data/uploads
+
+
+
+
+

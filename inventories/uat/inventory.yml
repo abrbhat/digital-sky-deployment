@@ -1,0 +1,17 @@
+  ---
+
+# expects ds-uat to defined in ~/.ssh/config, for example
+#Host ds-uat
+#        Hostname digitalsky-uat.centralindia.cloudapp.azure.com
+#        User core
+#        IdentityFile ~/.ssh/key_file
+#
+
+localhost ansible_connection=local ansible_host=127.0.0.1
+digitalsky-uat ansible_host=ds-uat ansible_user=core ansible_become=true ansible_become_user=core ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+
+[digital_sky_api_hosts]
+digitalsky-uat
+
+[digital_sky_app_hosts]
+digitalsky-uat
