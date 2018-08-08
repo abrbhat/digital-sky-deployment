@@ -50,12 +50,6 @@
         mode: 0644
         force: yes
 
-    - name: Create service data directory
-      file:
-        path: "{{services_root_directory}}/{{service_name}}/data"
-        state: directory
-        mode: 0755
-
     - name: Re-create service container
       docker_container:
         name: "{{service_name}}"
@@ -64,8 +58,7 @@
         state: started
         recreate: yes
         volumes:
-          - "{{services_root_directory}}/{{service_name}}/data:/data"
-          - "{{certs_root_directory}}:/certs"
+          - "{{certs_root_directory}}:/etc/nginx/certs"
         published_ports:
           - "{{service_host_port}}:{{service_container_port}}"
 
