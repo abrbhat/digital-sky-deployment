@@ -20,45 +20,45 @@
 
     - name: Create service directory
       file:
-        path: "{{services_root_directory}}/{{service_name}}"
+        path: "{{services_root_directory}}/{{app_service_name}}"
         state: directory
         mode: 0755
 
     - name: Copy image to server
       copy:
-        src: "/tmp/{{image_name}}-{{artifact_version}}-di.tar"
-        dest: "{{services_root_directory}}/{{service_name}}/{{image_name}}-{{artifact_version}}-di.tar"
+        src: "/tmp/{{app_image_name}}-{{app_artifact_version}}-di.tar"
+        dest: "{{services_root_directory}}/{{app_service_name}}/{{app_image_name}}-{{app_artifact_version}}-di.tar"
       when: archive_docker_image
 
     - name: Load image from archive
       docker_image:
-        name: "{{image_name}}"
-        tag: "{{artifact_version}}"
-        load_path: "{{services_root_directory}}/{{service_name}}/{{image_name}}-{{artifact_version}}-di.tar"
+        name: "{{app_image_name}}"
+        tag: "{{app_artifact_version}}"
+        load_path: "{{services_root_directory}}/{{app_service_name}}/{{app_image_name}}-{{app_artifact_version}}-di.tar"
       when: archive_docker_image
 
     - name: Remove image archive
       file:
-        path: "{{services_root_directory}}/{{service_name}}/{{image_name}}-{{artifact_version}}-di.tar"
+        path: "{{services_root_directory}}/{{app_service_name}}/{{app_image_name}}-{{app_artifact_version}}-di.tar"
         state: absent
       when: archive_docker_image
 
     - name: Resolve env properties
       template:
-        src: "{{service_name}}-env-properties.j2"
-        dest: "{{services_root_directory}}/{{service_name}}/env-properties.txt"
+        src: "{{app_service_name}}-env-properties.j2"
+        dest: "{{services_root_directory}}/{{app_service_name}}/env-properties.txt"
         mode: 0644
         force: yes
 
     - name: Re-create service container
       docker_container:
-        name: "{{service_name}}"
-        image: "{{image_name}}:{{artifact_version}}"
-        env_file: "{{services_root_directory}}/{{service_name}}/env-properties.txt"
+        name: "{{app_service_name}}"
+        image: "{{app_image_name}}:{{app_artifact_version}}"
+        env_file: "{{services_root_directory}}/{{app_service_name}}/env-properties.txt"
         state: started
         recreate: yes
         volumes:
           - "{{certs_root_directory}}:/etc/nginx/certs"
         published_ports:
-          - "{{service_host_port}}:{{service_container_port}}"
+          - "{{app_service_host_port}}:{{app_service_container_port}}"
 
