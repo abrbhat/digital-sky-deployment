@@ -1,7 +1,7 @@
 ---
 
 service_container_port: 9000
-service_host_port: 9090
+service_host_port: 9000
 service_name: digital-sky-api
 image_name: digital-sky-api
 artifact_version: 1.0

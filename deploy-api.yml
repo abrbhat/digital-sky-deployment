@@ -8,7 +8,7 @@
       docker_image:
         name: "digital-sky-api"
         tag: "1.0"
-        archive_path: "/tmp/digital-sky-1.0.-di.tar"
+        archive_path: "/tmp/digital-sky-api-1.0-di.tar"
       when: archive_docker_image
 
 # Deploy API service
