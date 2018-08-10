@@ -4,7 +4,7 @@ api_service_container_port: 9000
 api_service_host_port: 9000
 api_service_name: digital-sky-api
 api_image_name: digital-sky-api
-api_artifact_version: 1.0.0
+api_artifact_version: 1.0
 
 reset_password_path: "https://digitalsky-uat.centralindia.cloudapp.azure.com:8080/resetPassword"
 account_verification_path: "https://digitalsky-uat.centralindia.cloudapp.azure.com:8080/verifyAccount"
