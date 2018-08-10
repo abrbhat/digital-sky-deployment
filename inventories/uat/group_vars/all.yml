@@ -1,6 +1,6 @@
 ---
 services_root_directory: /home/core/digitalsky
 certs_root_directory: /home/core/certs
-
+archive_docker_image: true
 
 
